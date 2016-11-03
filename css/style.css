@@ -78,3 +78,14 @@
 .affix + .container-fluid {
     padding-top: 70px;
 }
+#div_button{
+    text-align: center;
+}
+.button-grey{
+    background-color:#A0A29D;
+    border-color:#A0A29D;
+}
+.button-grey:hover{
+    background-color: #323836;
+    border-color:#323836;
+}
