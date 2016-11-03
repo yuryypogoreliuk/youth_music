@@ -5,5 +5,6 @@ $(document).ready(function () {
     $("#player").hide();
     $("#subbut").click(function () {
         $("#player").show("slow");
+        return false;
     })
 })
