@@ -70,3 +70,11 @@
 #cont{
     height: 1500px;
 }
+.affix {
+    top: 60px;
+    width: 100%;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
