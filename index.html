@@ -5,12 +5,72 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <script src="js/jquery-1.11.3.min.js"></script>
-
+    <script src="https://vk.com/js/api/openapi.js?136"></script>
 
     <!--script type="text/javascript" src="js/script.js"></script-->
     <title>YouthMusic</title>
 </head>
 <body>
+
+<script>
+
+
+$(document).ready(function () {
+    VK.init({
+        apiId: 5704578
+    });
+
+    $('#startInitVK').click(function (argument) {
+        
+        VK.Auth.login(function (session) {
+            console.log(' VK Session -> ' + JSON.stringify(session));
+            user_id = session["session"]["mid"];
+            console.log(' User`s ID -> ' + user_id);
+            var audios = VK.Api.call('audio.get', {owner_id:user_id, need_user:1, offset:0, count:15, v:5.60}, function(data){
+
+                $( "#vkmusic" ).append("<p>You have " + data.response.count + " audios:</p>");
+
+                for (var i = 1; i < data.response.items.length; i++) {
+                    var song = data.response.items[i];
+                    var song_title = song["artist"] + "--" + song["title"];
+                    $( "#vkmusic" ).append("<p>" + song_title + "</p>")
+                }
+
+
+
+                console.log('audio.get returns it ->' + JSON.stringify(data));
+                console.log(data["response"]["items"][1]["id"]); // this is song id
+
+                //var a = document.createElement('audio');
+                // var a = new Audio('https://cs7-2v4.vk-cdn.net/p18/9f7ff81d62f2ee.mp3?extra=bCsLcLHnCAr4At6q-PYELRqNv7_sbXTyxpHSpBm0wDXIgR0njMbHC2C7F81S9A8vb-b9UaUu1fO6hnE8SfWNgNi-mcpmc1Oee-qnJp9Kco_RRxPchAxuQgWTNYGglkKiAkOEiR5aUctx-UU');
+                // $( "#vkmusic" ).append( $(a) );  
+                var aud_template = `
+                    <audio src="" controls>
+
+                    </audio>
+                `;
+                for (var i = 1; i <= data.response.items.length - 2  ; i++) {
+                    console.log(i + 'th iteration');
+                    src = data.response.items[i]["url"];
+                    var to_insert = $(aud_template);
+                    to_insert.attr("src", src);
+                    $('#vkmusic').append(to_insert);
+                }
+                // var $a_template = $(aud_template);
+                // $( "#vkmusic" ).append( $a_template );
+                //a.play();
+
+            });
+        }, 15)
+    });
+
+    
+})
+
+    
+    
+
+</script>
 
 
 <nav class="navbar navbar-default navbar-static-top navbar-fixed-top" style="margin:0;padding:0;border:none">
