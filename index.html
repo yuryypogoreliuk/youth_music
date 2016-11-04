@@ -14,6 +14,8 @@
 
 <script>
 
+<script>
+
 
 $(document).ready(function () {
     VK.init({
@@ -23,49 +25,165 @@ $(document).ready(function () {
     $('#startInitVK').click(function (argument) {
         
         VK.Auth.login(function (session) {
+            $("#startInitVK").hide();
             console.log(' VK Session -> ' + JSON.stringify(session));
             user_id = session["session"]["mid"];
             console.log(' User`s ID -> ' + user_id);
             var audios = VK.Api.call('audio.get', {owner_id:user_id, need_user:1, offset:0, count:15, v:5.60}, function(data){
 
-                $( "#vkmusic" ).append("<p>You have " + data.response.count + " audios:</p>");
+                $('#vkmusic').append("<div class='col-xs-12'></div>");                
+                $($(".col-xs-12").get(-1)).append($("<p>You have " + data.response.count + " audios:</p>"));
 
-                for (var i = 1; i < data.response.items.length; i++) {
-                    var song = data.response.items[i];
-                    var song_title = song["artist"] + "--" + song["title"];
-                    $( "#vkmusic" ).append("<p>" + song_title + "</p>")
-                }
-
-
+                // for (var i = 1; i < data.response.items.length; i++) {
+                    
+                // }
 
                 console.log('audio.get returns it ->' + JSON.stringify(data));
                 console.log(data["response"]["items"][1]["id"]); // this is song id
+                
+                var aud_template = '<audio src="" controls></audio>';
 
-                //var a = document.createElement('audio');
-                // var a = new Audio('https://cs7-2v4.vk-cdn.net/p18/9f7ff81d62f2ee.mp3?extra=bCsLcLHnCAr4At6q-PYELRqNv7_sbXTyxpHSpBm0wDXIgR0njMbHC2C7F81S9A8vb-b9UaUu1fO6hnE8SfWNgNi-mcpmc1Oee-qnJp9Kco_RRxPchAxuQgWTNYGglkKiAkOEiR5aUctx-UU');
-                // $( "#vkmusic" ).append( $(a) );  
-                var aud_template = `
-                    <audio src="" controls>
-
-                    </audio>
-                `;
                 for (var i = 1; i <= data.response.items.length - 2  ; i++) {
                     console.log(i + 'th iteration');
+
+                    $('#vkmusic').append("<div class='col-xs-12'></div>");
+                    a = $($(".col-xs-12").get(-1));
+
+                    var song = data.response.items[i];
+                    var song_title = song["artist"] + "--" + song["title"];
+                    a.append("<p>" + song_title + "</p>");
+
+
+
                     src = data.response.items[i]["url"];
                     var to_insert = $(aud_template);
                     to_insert.attr("src", src);
-                    $('#vkmusic').append(to_insert);
+                    //to_insert.wrap("<div class='col-xs-12'></div>");
+                    a.append(to_insert);
+                    a.append("<hr>");
                 }
+                $('#vkfriends').append("<div class='col-xs-10'></div>");
+                $($(".col-xs-10").get(-1)).append("<img src='" + data.response.items[0].photo + "'>");
+                $($(".col-xs-10").get(-1)).append("   Мои аудио<br><hr>")
                 // var $a_template = $(aud_template);
                 // $( "#vkmusic" ).append( $a_template );
                 //a.play();
 
+            });
+
+            VK.Api.call('friends.get', {user_id:user_id, order:"hints", v:5.60}, function(data){
+                console.log(JSON.stringify(data));
+
+                for (var i = 1; i < 10; i++) {
+                     //data.response.items.length
+
+                    var friend_id = data.response.items[i];
+
+                    $('#vkmusic').append("<div class='col-xs-12'></div>");
+
+
+
+
+                    VK.Api.call('audio.get', {owner_id:friend_id, need_user:1, offset:0, count:10, v:5.60}, function(data_friends_audio){
+                        console.log('audio.get of id' + friend_id + ' returns it ->' + JSON.stringify(data_friends_audio));
+                        var friend_name = data_friends_audio.response.items[0].name;
+                        
+                        $('#vkmusic').append("<div class='col-xs-12'></div>");                
+                        $($(".col-xs-12").get(-1)).append("<hr><hr><hr><hr>");
+                        $($(".col-xs-12").get(-1)).append($("<p>" + friend_name + " have " + data_friends_audio.response.count + " audios:</p>"));
+
+                        // for (var i = 1; i < data.response.items.length; i++) {
+                            
+                        // }
+
+                        console.log('audio.get returns it ->' + JSON.stringify(data_friends_audio));
+                        //console.log(data_friends_audio.response.items[1]["id"]); // this is song id
+                        
+                        var aud_template = '<audio src="" controls></audio>';
+
+                        for (var i = 1; i <= data_friends_audio.response.items.length - 2  ; i++) {
+                            console.log(i + 'th iteration');
+
+                            $('#vkmusic').append("<div class='col-xs-12'></div>");
+                            a = $($(".col-xs-12").get(-1));
+
+                            var song = data_friends_audio.response.items[i];
+                            var song_title = song["artist"] + "--" + song["title"];
+                            a.append("<p>" + song_title + "</p>");
+
+
+
+                            src = data_friends_audio.response.items[i]["url"];
+                            var to_insert = $(aud_template);
+                            to_insert.attr("src", src);
+                            //to_insert.wrap("<div class='col-xs-12'></div>");
+                            a.append(to_insert);
+                            a.append("<hr>");
+                        }
+
+                        $('#vkfriends').append("<div class='col-xs-10'></div>");
+                        $($(".col-xs-10").get(-1)).append("<img src='" + data_friends_audio.response.items[0].photo + "'>");
+                        $($(".col-xs-10").get(-1)).append("   " + data_friends_audio.response.items[0].name + "<br><hr>")
+
+                        // var friend_id = data.response["items"][i];
+                        // $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
+                        // // //.append()
+                        // var friend_name = data["response"]["items"][i].name_gen;
+                        // $(".col-xs-10").get(-1).append("<p>" + friend_name + " have " + data.response.count + " audios:</p>");     
+                        // // for (var i = 1; i < data.response.items.length; i++) {// data.response.items.length
+                        // //     var song = data.response["items"][i];
+                        // //     var song_title = song["artist"] + "--" + song["title"];
+                        // //     $( "#vkmusic" ).append("<p>" + song_title + "</p>")
+                        // // }
+
+
+
+                        // console.log('audio.get returns it ->' + JSON.stringify(data));
+                        // console.log(data["response"]["items"][1]["id"]); // this is song id
+
+                        // var aud_template = '<audio src="" controls></audio>';
+
+                        // for (var i = 1; i <= data.response["items"].length ; i++) {
+                        //     // $('#vkmusic').append("<div class='col-xs-'></div>");
+                        //     $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
+                        //     // $('#vkmusic').append("<div class='col-xs-3'></div>");
+
+                        //     var song = data.response["items"][i];
+                        //     var song_title = song["artist"] + "--" + song["title"];
+                        //     a = $(".col-xs-10").get(-1);
+                            
+                        //     $(a).append("<p>" + song_title + "</p>");
+                        //     console.log(i + 'th iteration');
+                        //     src = data.response.items[i]["url"];
+                        //     var to_insert = $(aud_template);
+                        //     to_insert.attr("src", src);
+                        //     // to_insert.wrap(function() {
+                        //     //     return "<div class='col-xs-12'></div>";
+                        //     // });
+                        //     console.log(to_insert);
+                        //     //$('#vkmusic').append("<div class='col-xs-12'></div>");
+                        //     $(a).append(to_insert);
+                        //     $(a).append("<hr>");
+                        //     //.wrap("<p></p>");//"<div class='col-xs-12'>" + to_insert + "</div>");
+                        // }
+                        // var $a_template = $(aud_template);
+                        // $( "#vkmusic" ).append( $a_template );
+                        //a.play();
+                    })
+                
+                }
             });
         }, 15)
     });
 
     
 })
+
+    
+    
+
+</script>
+
 
     
     
@@ -212,8 +330,8 @@ $(document).ready(function () {
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <div id="vkmusic"></div>
-
+    <div id="vkmusic" class="col-xs-6 col-xs-push-2"></div>
+    <div id="vkfriends" class="col-xs-4 col-xs-push-2"></div>
 </div>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
