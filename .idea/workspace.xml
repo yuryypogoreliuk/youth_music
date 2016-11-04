@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea503cbf-48fa-442c-a03f-f9406a7e7d7a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/img/sing.png" afterPath="$PROJECT_DIR$/img/sing.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/css/bootstrap.min.css" />
     </list>
     <ignored path="youth_music.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,16 +27,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+            <state relative-caret-position="3043">
+              <caret line="179" column="8" selection-start-line="179" selection-start-column="8" selection-end-line="179" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#4371#4378#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
               </folding>
             </state>
           </provider>
@@ -45,8 +48,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+            <state relative-caret-position="1411">
+              <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -65,7 +68,7 @@
       <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1921">
+            <state relative-caret-position="3366">
               <caret line="198" column="23" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="23" />
               <folding />
             </state>
@@ -95,11 +98,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="7422" column="18" selection-start-line="7422" selection-start-column="12" selection-end-line="7422" selection-end-column="18" />
+            <state relative-caret-position="433">
+              <caret line="7422" column="18" selection-start-line="7422" selection-start-column="18" selection-end-line="7422" selection-end-column="18" />
+              <caret line="1364" column="18" selection-start-line="1364" selection-start-column="18" selection-end-line="1364" selection-end-column="18" />
+              <caret line="1574" column="18" selection-start-line="1574" selection-start-column="18" selection-end-line="1574" selection-end-column="18" />
+              <caret line="1615" column="29" selection-start-line="1615" selection-start-column="29" selection-end-line="1615" selection-end-column="29" />
+              <caret line="2887" column="18" selection-start-line="2887" selection-start-column="18" selection-end-line="2887" selection-end-column="18" />
+              <caret line="2934" column="18" selection-start-line="2934" selection-start-column="18" selection-end-line="2934" selection-end-column="18" />
+              <caret line="2944" column="18" selection-start-line="2944" selection-start-column="18" selection-end-line="2944" selection-end-column="18" />
+              <caret line="2957" column="25" selection-start-line="2957" selection-start-column="25" selection-end-line="2957" selection-end-column="25" />
+              <caret line="3484" column="29" selection-start-line="3484" selection-start-column="29" selection-end-line="3484" selection-end-column="29" />
+              <caret line="3485" column="25" selection-start-line="3485" selection-start-column="25" selection-end-line="3485" selection-end-column="25" />
+              <caret line="3517" column="29" selection-start-line="3517" selection-start-column="29" selection-end-line="3517" selection-end-column="29" />
+              <caret line="3518" column="25" selection-start-line="3518" selection-start-column="25" selection-end-line="3518" selection-end-column="25" />
+              <caret line="3522" column="18" selection-start-line="3522" selection-start-column="18" selection-end-line="3522" selection-end-column="18" />
+              <caret line="3873" column="29" selection-start-line="3873" selection-start-column="29" selection-end-line="3873" selection-end-column="29" />
+              <caret line="3880" column="29" selection-start-line="3880" selection-start-column="29" selection-end-line="3880" selection-end-column="29" />
+              <caret line="4217" column="18" selection-start-line="4217" selection-start-column="18" selection-end-line="4217" selection-end-column="18" />
+              <caret line="4355" column="18" selection-start-line="4355" selection-start-column="18" selection-end-line="4355" selection-end-column="18" />
+              <caret line="4426" column="29" selection-start-line="4426" selection-start-column="29" selection-end-line="4426" selection-end-column="29" />
+              <caret line="4876" column="29" selection-start-line="4876" selection-start-column="29" selection-end-line="4876" selection-end-column="29" />
+              <caret line="4984" column="18" selection-start-line="4984" selection-start-column="18" selection-end-line="4984" selection-end-column="18" />
+              <caret line="4997" column="18" selection-start-line="4997" selection-start-column="18" selection-end-line="4997" selection-end-column="18" />
+              <caret line="5046" column="22" selection-start-line="5046" selection-start-column="22" selection-end-line="5046" selection-end-column="22" />
+              <caret line="5066" column="18" selection-start-line="5066" selection-start-column="18" selection-end-line="5066" selection-end-column="18" />
+              <caret line="5074" column="18" selection-start-line="5074" selection-start-column="18" selection-end-line="5074" selection-end-column="18" />
+              <caret line="5266" column="29" selection-start-line="5266" selection-start-column="29" selection-end-line="5266" selection-end-column="29" />
+              <caret line="5316" column="29" selection-start-line="5316" selection-start-column="29" selection-end-line="5316" selection-end-column="29" />
+              <caret line="5341" column="18" selection-start-line="5341" selection-start-column="18" selection-end-line="5341" selection-end-column="18" />
+              <caret line="5429" column="18" selection-start-line="5429" selection-start-column="18" selection-end-line="5429" selection-end-column="18" />
+              <caret line="5568" column="29" selection-start-line="5568" selection-start-column="29" selection-end-line="5568" selection-end-column="29" />
+              <caret line="5747" column="29" selection-start-line="5747" selection-start-column="29" selection-end-line="5747" selection-end-column="29" />
+              <caret line="5748" column="25" selection-start-line="5748" selection-start-column="25" selection-end-line="5748" selection-end-column="25" />
+              <caret line="6054" column="18" selection-start-line="6054" selection-start-column="18" selection-end-line="6054" selection-end-column="18" />
+              <caret line="6065" column="29" selection-start-line="6065" selection-start-column="29" selection-end-line="6065" selection-end-column="29" />
+              <caret line="6073" column="25" selection-start-line="6073" selection-start-column="25" selection-end-line="6073" selection-end-column="25" />
+              <caret line="6078" column="29" selection-start-line="6078" selection-start-column="29" selection-end-line="6078" selection-end-column="29" />
+              <caret line="6079" column="25" selection-start-line="6079" selection-start-column="25" selection-end-line="6079" selection-end-column="25" />
+              <caret line="6083" column="29" selection-start-line="6083" selection-start-column="29" selection-end-line="6083" selection-end-column="29" />
+              <caret line="6087" column="18" selection-start-line="6087" selection-start-column="18" selection-end-line="6087" selection-end-column="18" />
+              <caret line="6092" column="32" selection-start-line="6092" selection-start-column="32" selection-end-line="6092" selection-end-column="32" />
+              <caret line="7224" column="18" selection-start-line="7224" selection-start-column="18" selection-end-line="7224" selection-end-column="18" />
+              <caret line="7251" column="18" selection-start-line="7251" selection-start-column="18" selection-end-line="7251" selection-end-column="18" />
+              <caret line="7414" column="18" selection-start-line="7414" selection-start-column="18" selection-end-line="7414" selection-end-column="18" />
+              <caret line="7418" column="18" selection-start-line="7418" selection-start-column="18" selection-end-line="7418" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -149,10 +194,10 @@
         <option value="$PROJECT_DIR$/js/ourjs.js" />
         <option value="$PROJECT_DIR$/css/bootstrap-theme.css" />
         <option value="$PROJECT_DIR$/css/bootstrap-theme.min.css" />
-        <option value="$PROJECT_DIR$/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/js/jquery.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/bootstrap.min.css" />
       </list>
     </option>
   </component>
@@ -164,9 +209,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="776" />
+    <option name="width" value="758" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -193,10 +237,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files" />
-      </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -259,6 +299,10 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files" />
       </pane>
     </panes>
   </component>
@@ -348,32 +392,33 @@
       <workItem from="1478123148928" duration="1750000" />
       <workItem from="1478159756758" duration="4341000" />
       <workItem from="1478166562381" duration="4222000" />
+      <workItem from="1478257109968" duration="655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36185000" />
+    <option name="totallyTimeSpent" value="36840000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
+    <frame x="-8" y="0" width="758" height="876" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1359375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26666668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26276276" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26244953" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -465,7 +510,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -598,7 +646,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -618,7 +669,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -638,7 +692,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -658,7 +715,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -678,7 +738,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -691,7 +754,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -711,7 +777,10 @@
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
         </state>
       </provider>
@@ -800,14 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="7422" column="18" selection-start-line="7422" selection-start-column="12" selection-end-line="7422" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/img/imag.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -844,7 +905,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1921">
+        <state relative-caret-position="3366">
           <caret line="198" column="23" selection-start-line="198" selection-start-column="23" selection-end-line="198" selection-end-column="23" />
           <folding />
         </state>
@@ -860,22 +921,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+        <state relative-caret-position="1411">
+          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="112" column="8" selection-start-line="112" selection-start-column="8" selection-end-line="112" selection-end-column="8" />
+        <state relative-caret-position="3043">
+          <caret line="179" column="8" selection-start-line="179" selection-start-column="8" selection-end-line="179" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#4371#4378#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#nav#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1478257384522" expanded="true" signature="1884:1914" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="7422" column="18" selection-start-line="7422" selection-start-column="18" selection-end-line="7422" selection-end-column="18" />
+          <caret line="1364" column="18" selection-start-line="1364" selection-start-column="18" selection-end-line="1364" selection-end-column="18" />
+          <caret line="1574" column="18" selection-start-line="1574" selection-start-column="18" selection-end-line="1574" selection-end-column="18" />
+          <caret line="1615" column="29" selection-start-line="1615" selection-start-column="29" selection-end-line="1615" selection-end-column="29" />
+          <caret line="2887" column="18" selection-start-line="2887" selection-start-column="18" selection-end-line="2887" selection-end-column="18" />
+          <caret line="2934" column="18" selection-start-line="2934" selection-start-column="18" selection-end-line="2934" selection-end-column="18" />
+          <caret line="2944" column="18" selection-start-line="2944" selection-start-column="18" selection-end-line="2944" selection-end-column="18" />
+          <caret line="2957" column="25" selection-start-line="2957" selection-start-column="25" selection-end-line="2957" selection-end-column="25" />
+          <caret line="3484" column="29" selection-start-line="3484" selection-start-column="29" selection-end-line="3484" selection-end-column="29" />
+          <caret line="3485" column="25" selection-start-line="3485" selection-start-column="25" selection-end-line="3485" selection-end-column="25" />
+          <caret line="3517" column="29" selection-start-line="3517" selection-start-column="29" selection-end-line="3517" selection-end-column="29" />
+          <caret line="3518" column="25" selection-start-line="3518" selection-start-column="25" selection-end-line="3518" selection-end-column="25" />
+          <caret line="3522" column="18" selection-start-line="3522" selection-start-column="18" selection-end-line="3522" selection-end-column="18" />
+          <caret line="3873" column="29" selection-start-line="3873" selection-start-column="29" selection-end-line="3873" selection-end-column="29" />
+          <caret line="3880" column="29" selection-start-line="3880" selection-start-column="29" selection-end-line="3880" selection-end-column="29" />
+          <caret line="4217" column="18" selection-start-line="4217" selection-start-column="18" selection-end-line="4217" selection-end-column="18" />
+          <caret line="4355" column="18" selection-start-line="4355" selection-start-column="18" selection-end-line="4355" selection-end-column="18" />
+          <caret line="4426" column="29" selection-start-line="4426" selection-start-column="29" selection-end-line="4426" selection-end-column="29" />
+          <caret line="4876" column="29" selection-start-line="4876" selection-start-column="29" selection-end-line="4876" selection-end-column="29" />
+          <caret line="4984" column="18" selection-start-line="4984" selection-start-column="18" selection-end-line="4984" selection-end-column="18" />
+          <caret line="4997" column="18" selection-start-line="4997" selection-start-column="18" selection-end-line="4997" selection-end-column="18" />
+          <caret line="5046" column="22" selection-start-line="5046" selection-start-column="22" selection-end-line="5046" selection-end-column="22" />
+          <caret line="5066" column="18" selection-start-line="5066" selection-start-column="18" selection-end-line="5066" selection-end-column="18" />
+          <caret line="5074" column="18" selection-start-line="5074" selection-start-column="18" selection-end-line="5074" selection-end-column="18" />
+          <caret line="5266" column="29" selection-start-line="5266" selection-start-column="29" selection-end-line="5266" selection-end-column="29" />
+          <caret line="5316" column="29" selection-start-line="5316" selection-start-column="29" selection-end-line="5316" selection-end-column="29" />
+          <caret line="5341" column="18" selection-start-line="5341" selection-start-column="18" selection-end-line="5341" selection-end-column="18" />
+          <caret line="5429" column="18" selection-start-line="5429" selection-start-column="18" selection-end-line="5429" selection-end-column="18" />
+          <caret line="5568" column="29" selection-start-line="5568" selection-start-column="29" selection-end-line="5568" selection-end-column="29" />
+          <caret line="5747" column="29" selection-start-line="5747" selection-start-column="29" selection-end-line="5747" selection-end-column="29" />
+          <caret line="5748" column="25" selection-start-line="5748" selection-start-column="25" selection-end-line="5748" selection-end-column="25" />
+          <caret line="6054" column="18" selection-start-line="6054" selection-start-column="18" selection-end-line="6054" selection-end-column="18" />
+          <caret line="6065" column="29" selection-start-line="6065" selection-start-column="29" selection-end-line="6065" selection-end-column="29" />
+          <caret line="6073" column="25" selection-start-line="6073" selection-start-column="25" selection-end-line="6073" selection-end-column="25" />
+          <caret line="6078" column="29" selection-start-line="6078" selection-start-column="29" selection-end-line="6078" selection-end-column="29" />
+          <caret line="6079" column="25" selection-start-line="6079" selection-start-column="25" selection-end-line="6079" selection-end-column="25" />
+          <caret line="6083" column="29" selection-start-line="6083" selection-start-column="29" selection-end-line="6083" selection-end-column="29" />
+          <caret line="6087" column="18" selection-start-line="6087" selection-start-column="18" selection-end-line="6087" selection-end-column="18" />
+          <caret line="6092" column="32" selection-start-line="6092" selection-start-column="32" selection-end-line="6092" selection-end-column="32" />
+          <caret line="7224" column="18" selection-start-line="7224" selection-start-column="18" selection-end-line="7224" selection-end-column="18" />
+          <caret line="7251" column="18" selection-start-line="7251" selection-start-column="18" selection-end-line="7251" selection-end-column="18" />
+          <caret line="7414" column="18" selection-start-line="7414" selection-start-column="18" selection-end-line="7414" selection-end-column="18" />
+          <caret line="7418" column="18" selection-start-line="7418" selection-start-column="18" selection-end-line="7418" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
