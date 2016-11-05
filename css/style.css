@@ -91,3 +91,12 @@
     background-color: #323836;
     border-color:#323836;
 }
+audio {
+	width:100%;
+}
+
+.like{  }
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}

@@ -16,6 +16,8 @@
 
 
     $(document).ready(function () {
+        
+
         VK.init({
             apiId: 5704578
         });
@@ -23,6 +25,7 @@
         $('#startInitVK').click(function (argument) {
 
             VK.Auth.login(function (session) {
+                $(".jumbotron").hide()
                 $("#startInitVK").hide();
                 console.log(' VK Session -> ' + JSON.stringify(session));
                 user_id = session["session"]["mid"];
@@ -54,7 +57,7 @@
                         a = $($(".col-xs-12").get(-1));
 
                         var song = data.response.items[i];
-                        var song_title = song["artist"] + "--" + song["title"];
+                        var song_title = song["artist"] + " — " + song["title"];
                         a.append("<p>" + song_title + "</p>");
 
 
@@ -63,11 +66,20 @@
                         to_insert.attr("src", src);
                         //to_insert.wrap("<div class='col-xs-12'></div>");
                         a.append(to_insert);
-                        $($(".col-xs-12").get(-1)).append($("<br><button type='button' class='btn btn-default btn-sm like' ><span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Like</button>"));
+                         a.append($("<br><div><button type='button' align='right' data-control='" +song_id+ "' class='btn btn-default btn-sm like pull-right' ><span class='glyphicon glyphicon-thumbs-up'  aria-hidden='true'></span>Like 0</button></div>"));
+                                $('.like').click(function (e) {
+                                    $(this).prop('disabled', true)
+                                    $(this).html("<span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Like 1")
+                                })
+                                $('.like').click(function (e) {
+                                    $(this).prop('disabled', true);
+                                    console.log($(this).attr("data-control"));
+                                })
+                                var comment = '<div class="input-group"><input type="text" class="form-control comment" placeholder="Comment it"><span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>';
                         a.append("<hr>");
                     }
                     $('#vkfriends').append("<div class='col-xs-10'></div>");
-                    $($(".col-xs-10").get(-1)).append("<img src='" + data.response.items[0].photo + "'>");
+                    $($(".col-xs-10").get(-1)).append("<img class='img-circle' src='" + data.response.items[0].photo + "'>");
                     $($(".col-xs-10").get(-1)).append("   Мои аудио<br><hr>")
                     // var $a_template = $(aud_template);
                     // $( "#vkmusic" ).append( $a_template );
@@ -102,7 +114,9 @@
                         }, function (data_friends_audio) {
                             console.log('audio.get of id' + friend_id + ' returns it ->' + JSON.stringify(data_friends_audio));
                             var friend_name = data_friends_audio.response.items[0].name;
-                            $('#friend1').append("<div class='col-xs-12'></div>");
+                            
+                            var f = "#fr" + i
+                            $(f).append("<div class='col-xs-12'></div>");
                             $($(".col-xs-12").get(-1)).append($("<p>" + friend_name + " have " + data_friends_audio.response.count + " audios:</p>"));
 
 
@@ -110,17 +124,19 @@
                             //console.log(data_friends_audio.response.items[1]["id"]); // this is song id
 
                             var aud_template = '<audio  style="width:100%; color:red;" src=""  controls></audio>';
+                            $('#vkfriends').append("<div class='col-xs-10'></div>");
+                            $($(".col-xs-10").get(-1)).append("<img class='img-circle' src='" + data_friends_audio.response.items[0].photo + "'>");
+                            $($(".col-xs-10").get(-1)).append("   " + data_friends_audio.response.items[0].name + "<br><hr>")
 
-                            for (var j = 1; j <= data_friends_audio.response.items.length - 2; j++) {
+                            for (var j = 1; j <= data_friends_audio.response.items.length - 2 ; j++) {
                                 console.log(i + 'th iteration');
 
 
-
-                                $('#friend1').append("<div class='col-xs-12'></div>");
+                                $(f).append("<div class='col-xs-12'></div>");
                                 a = $($(".col-xs-12").get(-1));
 
                                 var song = data_friends_audio.response.items[j];
-                                var song_title = song["artist"] + "--" + song["title"];
+                                var song_title = song["artist"] + " — " + song["title"];
                                 a.append("<p>" + song_title + "</p>");
 
 
@@ -129,18 +145,48 @@
                                 to_insert.attr("src", src);
                                 //to_insert.wrap("<div class='col-xs-12'></div>");
                                 a.append(to_insert);
-                                $($(".col-xs-12").get(-1)).append($("<br><button type='button' class='btn btn-default btn-sm like' ><span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Like</button>"));
+                                $.ajax({
+                                    url: "http://youthpower.cleverapps.io/rating",
+                                    type: 'GET',
+                                    crossDomain: true,
+                                    success: function(data){
+                                        console.log(JSON.stringify(data))
+                                    }   
+                                });
+                                var song_id = song["id"]
+                                // var data = $.ajax({
+                                //     url: "http://youthpower.cleverapps.io/rating",
+                                //     type: 'GET',
+                                //     crossDomain: true,
+                                //     success: function(data){
+                                //         return data
+                                //     }   
+                                // })
+                                var likes;
+                                // for (var i=0; i < data.responseJSON.rating.length; i++){
+                                //     if (data.responseJSON.rating[i] == song_id)
+                                //         {likes = data.responseJSON.rating[i].likes}
+                                // }
+                                a.append($("<br><div><button type='button' align='right' data-control='" +song_id+ "' class='btn btn-default btn-sm like pull-right' ><span class='glyphicon glyphicon-thumbs-up'  aria-hidden='true'></span>Like 0</button></div>"));
+                                $('.like').click(function (e) {
+                                    $(this).prop('disabled', true)
+                                    $(this).html("<span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Like 1")
+                                })
+                                $('.like').click(function (e) {
+                                    $(this).prop('disabled', true);
+                                    console.log($(this).attr("data-control"));
+                                })
+                                var comment = '<div class="input-group"><input type="text" class="form-control comment" placeholder="Comment it"><span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>';
+                                $('.like').keyup(function (e) {
+                                    if (event.which == 13) {
 
-                                var comment = '<div class="input-group"><input type="text" class="form-control" placeholder="Search for..."><span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>';
-
-                                var comment = '<div class="input-group"><input type="text" class="form-control" placeholder="Search for..."><span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>';
+                                    }
+                                })
+                                a.append(comment)
                                 a.append("<hr>");
                             }
 
-                            $('#vkfriends').append("<div class='col-xs-10'></div>");
-                            $($(".col-xs-10").get(-1)).append("<img src='" + data_friends_audio.response.items[0].photo + "'>");
-                            $($(".col-xs-10").get(-1)).append("   " + data_friends_audio.response.items[0].name + "<br><hr>")
-
+                            
                             // var friend_id = data.response["items"][i];
                             // $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
                             // // //.append()
@@ -207,7 +253,7 @@
                                 $('#vkmusic').append("<div class='col-xs-12'></div>");
                                 a = $($(".col-xs-12").get(-1));
                                 var song = data.response.items[i];
-                                var song_title = song["artist"] + "--" + song["title"];
+                                var song_title = song["artist"] + " — " + song["title"];
                                 a.append("<p>" + song_title + "</p>");
                                 src = data.response.items[i]["url"];
                                 var to_insert = $(aud_template);
@@ -305,8 +351,8 @@
             <div class="navbar-header">
                 <ul class="nav nav-tabs" role="tablist" id="tabs">
                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
-                                                              data-toggle="tab">All</a></li>
-                    <li role="presentation"><a href="#friend1" aria-controls="friend1" role="tab" data-toggle="tab" id="nameFriend1">Friend1</a>
+                                                              data-toggle="tab">My and friends` audios </a></li>
+                    <!-- <li role="presentation"><a href="#friend1" aria-controls="friend1" role="tab" data-toggle="tab" id="nameFriend1">Friend1</a>
                     </li>
                     <li role="presentation"><a href="#friend2" aria-controls="friend2" role="tab" data-toggle="tab" id="nameFriend2">Friend2</a>
                     </li>
@@ -315,7 +361,7 @@
                     <li role="presentation"><a href="#friend4" aria-controls="friend4" role="tab" data-toggle="tab" id="nameFriend4">Friend4</a>
                     </li>
                     <li role="presentation"><a href="#friend5" aria-controls="friend5" role="tab" data-toggle="tab" id="nameFriend5">Friend5</a>
-                    </li>
+                    </li> -->
 
                 </ul>
             </div>
@@ -324,7 +370,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="searchMusic" placeholder="Search for...">
+                        <input type="text" class="form-control" id="searchMusic" placeholder="Search for song">
                     </div>
                     <button class="btn btn-default" type="button">Go!</button>
                 </form>
@@ -336,33 +382,63 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane fade in active col-xs-6 col-xs-push-2" id="home">
-        <div id="vkmusic" ></div>
-
+            <div id="vkmusic"></div>
         </div>
-        <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend1">
+            <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome!</h1>
+        <p>Please log in VK to listen audios</p>
+        <!--     -->
+      </div>
+    </div>
+        <!-- <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend1">
+            <div id="fr1" ></div>
+
+           
         </div>
         <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend2">
-
+            <div id="fr2"  ></div>
         </div>
         <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend3">
+            <div id="fr3"></div>
 
         </div>
         <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend4">
+            <div id="fr4" ></div>
 
         </div>
         <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend5">
-
+            <div id="fr5" ></div>
+ -->
+            
         </div>
     </div>
-    <script>
-        $('.like').click(function (e) {
-            $(this).prop('disabled', true)
-        })
-    </script>
 
 
-    <div id="vkfriends" class="col-xs-4 col-pull-right   "></div>
+
+    <!--div id="vkmusic" class="col-xs-6 col-xs-push-2"></div-->
+    <div id="vkfriends" class="col-xs-4 col-xs-push-2"></div>
+
+
 </div>
+<script>
+$(document).ready(function(){
+    $('.like').click(function (e) {
+            console.log(this)
+            $(this).addClass('disabled')
+            console.log('like clicked')
+            
+        })})
+
+$.ajax({
+    url: "http://youthpower.cleverapps.io/rating/1234/9545",
+    type: 'POST',
+    crossDomain: true,
+    success: function(data){
+        console.log(JSON.stringify(data))
+    }   
+})
+</script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
 <script src="js/ourjs.js"></script>
