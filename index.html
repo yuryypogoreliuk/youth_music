@@ -15,176 +15,234 @@
 <script>
 
 
-$(document).ready(function () {
-    VK.init({
-        apiId: 5704578
-    });
+    $(document).ready(function () {
+        VK.init({
+            apiId: 5704578
+        });
 
-    $('#startInitVK').click(function (argument) {
-        
-        VK.Auth.login(function (session) {
-            $("#startInitVK").hide();
-            console.log(' VK Session -> ' + JSON.stringify(session));
-            user_id = session["session"]["mid"];
-            console.log(' User`s ID -> ' + user_id);
-            var audios = VK.Api.call('audio.get', {owner_id:user_id, need_user:1, offset:0, count:15, v:5.60}, function(data){
+        $('#startInitVK').click(function (argument) {
 
-                $('#vkmusic').append("<div class='col-xs-12'></div>");                
-                $($(".col-xs-12").get(-1)).append($("<p>You have " + data.response.count + " audios:</p>"));
-
-                // for (var i = 1; i < data.response.items.length; i++) {
-                    
-                // }
-
-                console.log('audio.get returns it ->' + JSON.stringify(data));
-                console.log(data["response"]["items"][1]["id"]); // this is song id
-                
-                var aud_template = '<audio src="" controls></audio>';
-
-                for (var i = 1; i <= data.response.items.length - 2  ; i++) {
-                    console.log(i + 'th iteration');
+            VK.Auth.login(function (session) {
+                $("#startInitVK").hide();
+                console.log(' VK Session -> ' + JSON.stringify(session));
+                user_id = session["session"]["mid"];
+                console.log(' User`s ID -> ' + user_id);
+                var audios = VK.Api.call('audio.get', {
+                    owner_id: user_id,
+                    need_user: 1,
+                    offset: 0,
+                    count: 15,
+                    v: 5.60
+                }, function (data) {
 
                     $('#vkmusic').append("<div class='col-xs-12'></div>");
-                    a = $($(".col-xs-12").get(-1));
+                    $($(".col-xs-12").get(-1)).append($("<p>You have " + data.response.count + " audios:</p>"));
 
-                    var song = data.response.items[i];
-                    var song_title = song["artist"] + "--" + song["title"];
-                    a.append("<p>" + song_title + "</p>");
+                    // for (var i = 1; i < data.response.items.length; i++) {
 
+                    // }
 
+                    console.log('audio.get returns it ->' + JSON.stringify(data));
+                    console.log(data["response"]["items"][1]["id"]); // this is song id
 
-                    src = data.response.items[i]["url"];
-                    var to_insert = $(aud_template);
-                    to_insert.attr("src", src);
-                    //to_insert.wrap("<div class='col-xs-12'></div>");
-                    a.append(to_insert);
-                    a.append("<hr>");
-                }
-                $('#vkfriends').append("<div class='col-xs-10'></div>");
-                $($(".col-xs-10").get(-1)).append("<img src='" + data.response.items[0].photo + "'>");
-                $($(".col-xs-10").get(-1)).append("   Мои аудио<br><hr>")
-                // var $a_template = $(aud_template);
-                // $( "#vkmusic" ).append( $a_template );
-                //a.play();
+                    var aud_template = '<audio src="" controls></audio>';
 
-            });
+                    for (var i = 1; i <= data.response.items.length - 2; i++) {
+                        console.log(i + 'th iteration');
 
-            VK.Api.call('friends.get', {user_id:user_id, order:"hints", v:5.60}, function(data){
-                console.log(JSON.stringify(data));
+                        $('#vkmusic').append("<div class='col-xs-12'></div>");
+                        a = $($(".col-xs-12").get(-1));
 
-                for (var i = 1; i < 10; i++) {
-                     //data.response.items.length
-
-                    var friend_id = data.response.items[i];
-
-                    $('#vkmusic').append("<div class='col-xs-12'></div>");
+                        var song = data.response.items[i];
+                        var song_title = song["artist"] + "--" + song["title"];
+                        a.append("<p>" + song_title + "</p>");
 
 
+                        src = data.response.items[i]["url"];
+                        var to_insert = $(aud_template);
+                        to_insert.attr("src", src);
+                        //to_insert.wrap("<div class='col-xs-12'></div>");
+                        a.append(to_insert);
+                        $($(".col-xs-12").get(-1)).append($("<br><button type='button' class='btn btn-default btn-sm like' ><span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Like</button>"));
+                        a.append("<hr>");
+                    }
+                    $('#vkfriends').append("<div class='col-xs-10'></div>");
+                    $($(".col-xs-10").get(-1)).append("<img src='" + data.response.items[0].photo + "'>");
+                    $($(".col-xs-10").get(-1)).append("   Мои аудио<br><hr>")
+                    // var $a_template = $(aud_template);
+                    // $( "#vkmusic" ).append( $a_template );
+                    //a.play();
+
+                });
+//                $(document).ready(function () {
+//                    $("#jquery_jplayer_1").jPlayer({
+//                        ready: function () {
+//                            $(this).jPlayer("setMedia", {
+//                                m4a: "/media/mysound.mp4",
+//                                oga: "/media/mysound.ogg"
+//                            });
+//                        },
+//                        swfPath: "/js",
+//                        supplied: "m4a, oga"
+//                    });
+//                });
+
+                VK.Api.call('friends.get', {user_id: user_id, order: "hints", v: 5.60}, function (data) {
+                    console.log(JSON.stringify(data));
+                    var ids = ['','fiend1','fiend2','fiend3','fiend4','fiend5',]
+                    for (var i = 1; i < 10; i++) {
+                        //data.response.items.length
+                        var friend_id = data.response.items[i];
+                        $('#vkmusic').append("<div class='col-xs-12'></div>");
+
+                        VK.Api.call('audio.get', {
+                            owner_id: friend_id,
+                            need_user: 1,
+                            offset: 0,
+                            count: 10,
+                            v: 5.60
+                        }, function (data_friends_audio) {
+                            console.log('audio.get of id' + friend_id + ' returns it ->' + JSON.stringify(data_friends_audio));
+                            var friend_name = data_friends_audio.response.items[0].name;
+
+                            $('#friend1').append("<div class='col-xs-12'></div>");
+                            $($(".col-xs-12").get(-1)).append($("<p>" + friend_name + " have " + data_friends_audio.response.count + " audios:</p>"));
+                            // for (var i = 1; i < data.response.items.length; i++) {
+
+                            // }
+
+                            console.log('audio.get returns it ->' + JSON.stringify(data_friends_audio));
+                            //console.log(data_friends_audio.response.items[1]["id"]); // this is song id
+
+                            var aud_template = '<audio style="width:100%; color:red;" src="" controls></audio>';
+
+                            for (var j = 1; j <= data_friends_audio.response.items.length - 2; j++) {
+                                console.log(i + 'th iteration');
+
+                                document.getElementById('nameFriend'+j).innerHTML = friend_name;
+                                
+                                $('#friend1').append("<div class='col-xs-12'></div>");
+                                a = $($(".col-xs-12").get(-1));
+
+                                var song = data_friends_audio.response.items[j];
+                                var song_title = song["artist"] + "--" + song["title"];
+                                a.append("<p>" + song_title + "</p>");
 
 
-                    VK.Api.call('audio.get', {owner_id:friend_id, need_user:1, offset:0, count:10, v:5.60}, function(data_friends_audio){
-                        console.log('audio.get of id' + friend_id + ' returns it ->' + JSON.stringify(data_friends_audio));
-                        var friend_name = data_friends_audio.response.items[0].name;
-                        
-                        $('#vkmusic').append("<div class='col-xs-12'></div>");                
-                        $($(".col-xs-12").get(-1)).append("<hr><hr><hr><hr>");
-                        $($(".col-xs-12").get(-1)).append($("<p>" + friend_name + " have " + data_friends_audio.response.count + " audios:</p>"));
+                                src = data_friends_audio.response.items[j]["url"];
+                                var to_insert = $(aud_template);
+                                to_insert.attr("src", src);
+                                //to_insert.wrap("<div class='col-xs-12'></div>");
+                                a.append(to_insert);
+                                $($(".col-xs-12").get(-1)).append($("<br><button type='button' class='btn btn-default btn-sm like' ><span class='glyphicon glyphicon-thumbs-up' aria-hidden='true'></span> Like</button>"));
 
-                        // for (var i = 1; i < data.response.items.length; i++) {
-                            
-                        // }
+                                var comment = '<div class="input-group"><input type="text" class="form-control" placeholder="Search for..."><span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>';
 
-                        console.log('audio.get returns it ->' + JSON.stringify(data_friends_audio));
-                        //console.log(data_friends_audio.response.items[1]["id"]); // this is song id
-                        
-                        var aud_template = '<audio src="" controls></audio>';
+                                var comment = '<div class="input-group"><input type="text" class="form-control" placeholder="Search for..."><span class="input-group-btn"><button class="btn btn-default" type="button">Go!</button></span>';
+                                a.append("<hr>");
+                            }
 
-                        for (var i = 1; i <= data_friends_audio.response.items.length - 2  ; i++) {
-                            console.log(i + 'th iteration');
+                            $('#vkfriends').append("<div class='col-xs-10'></div>");
+                            $($(".col-xs-10").get(-1)).append("<img src='" + data_friends_audio.response.items[0].photo + "'>");
+                            $($(".col-xs-10").get(-1)).append("   " + data_friends_audio.response.items[0].name + "<br><hr>")
 
-                            $('#vkmusic').append("<div class='col-xs-12'></div>");
-                            a = $($(".col-xs-12").get(-1));
-
-                            var song = data_friends_audio.response.items[i];
-                            var song_title = song["artist"] + "--" + song["title"];
-                            a.append("<p>" + song_title + "</p>");
-
-
-
-                            src = data_friends_audio.response.items[i]["url"];
-                            var to_insert = $(aud_template);
-                            to_insert.attr("src", src);
-                            //to_insert.wrap("<div class='col-xs-12'></div>");
-                            a.append(to_insert);
-                            a.append("<hr>");
-                        }
-
-                        $('#vkfriends').append("<div class='col-xs-10'></div>");
-                        $($(".col-xs-10").get(-1)).append("<img src='" + data_friends_audio.response.items[0].photo + "'>");
-                        $($(".col-xs-10").get(-1)).append("   " + data_friends_audio.response.items[0].name + "<br><hr>")
-
-                        // var friend_id = data.response["items"][i];
-                        // $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
-                        // // //.append()
-                        // var friend_name = data["response"]["items"][i].name_gen;
-                        // $(".col-xs-10").get(-1).append("<p>" + friend_name + " have " + data.response.count + " audios:</p>");     
-                        // // for (var i = 1; i < data.response.items.length; i++) {// data.response.items.length
-                        // //     var song = data.response["items"][i];
-                        // //     var song_title = song["artist"] + "--" + song["title"];
-                        // //     $( "#vkmusic" ).append("<p>" + song_title + "</p>")
-                        // // }
+                            // var friend_id = data.response["items"][i];
+                            // $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
+                            // // //.append()
+                            // var friend_name = data["response"]["items"][i].name_gen;
+                            // $(".col-xs-10").get(-1).append("<p>" + friend_name + " have " + data.response.count + " audios:</p>");
+                            // // for (var i = 1; i < data.response.items.length; i++) {// data.response.items.length
+                            // //     var song = data.response["items"][i];
+                            // //     var song_title = song["artist"] + "--" + song["title"];
+                            // //     $( "#vkmusic" ).append("<p>" + song_title + "</p>")
+                            // // }
 
 
+                            // console.log('audio.get returns it ->' + JSON.stringify(data));
+                            // console.log(data["response"]["items"][1]["id"]); // this is song id
 
-                        // console.log('audio.get returns it ->' + JSON.stringify(data));
-                        // console.log(data["response"]["items"][1]["id"]); // this is song id
+                            // var aud_template = '<audio src="" controls></audio>';
 
-                        // var aud_template = '<audio src="" controls></audio>';
+                            // for (var i = 1; i <= data.response["items"].length ; i++) {
+                            //     // $('#vkmusic').append("<div class='col-xs-'></div>");
+                            //     $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
+                            //     // $('#vkmusic').append("<div class='col-xs-3'></div>");
 
-                        // for (var i = 1; i <= data.response["items"].length ; i++) {
-                        //     // $('#vkmusic').append("<div class='col-xs-'></div>");
-                        //     $('#vkmusic').append("<div class='col-xs-10 col-xs-push-2'></div>");
-                        //     // $('#vkmusic').append("<div class='col-xs-3'></div>");
+                            //     var song = data.response["items"][i];
+                            //     var song_title = song["artist"] + "--" + song["title"];
+                            //     a = $(".col-xs-10").get(-1);
 
-                        //     var song = data.response["items"][i];
-                        //     var song_title = song["artist"] + "--" + song["title"];
-                        //     a = $(".col-xs-10").get(-1);
-                            
-                        //     $(a).append("<p>" + song_title + "</p>");
-                        //     console.log(i + 'th iteration');
-                        //     src = data.response.items[i]["url"];
-                        //     var to_insert = $(aud_template);
-                        //     to_insert.attr("src", src);
-                        //     // to_insert.wrap(function() {
-                        //     //     return "<div class='col-xs-12'></div>";
-                        //     // });
-                        //     console.log(to_insert);
-                        //     //$('#vkmusic').append("<div class='col-xs-12'></div>");
-                        //     $(a).append(to_insert);
-                        //     $(a).append("<hr>");
-                        //     //.wrap("<p></p>");//"<div class='col-xs-12'>" + to_insert + "</div>");
-                        // }
-                        // var $a_template = $(aud_template);
-                        // $( "#vkmusic" ).append( $a_template );
-                        //a.play();
-                    })
-                
-                }
-            });
-        }, 15)
-    });
+                            //     $(a).append("<p>" + song_title + "</p>");
+                            //     console.log(i + 'th iteration');
+                            //     src = data.response.items[i]["url"];
+                            //     var to_insert = $(aud_template);
+                            //     to_insert.attr("src", src);
+                            //     // to_insert.wrap(function() {
+                            //     //     return "<div class='col-xs-12'></div>";
+                            //     // });
+                            //     console.log(to_insert);
+                            //     //$('#vkmusic').append("<div class='col-xs-12'></div>");
+                            //     $(a).append(to_insert);
+                            //     $(a).append("<hr>");
+                            //     //.wrap("<p></p>");//"<div class='col-xs-12'>" + to_insert + "</div>");
+                            // }
+                            // var $a_template = $(aud_template);
+                            // $( "#vkmusic" ).append( $a_template );
+                            //a.play();
+                        })
 
-    
-})
+                    }
+                });
+            }, 15)
+        });
 
-    
-    
+        $('#searchMusic').keyup(function (event) {
+            if (event.which == 13) {
+                var query = $('#searchMusic').val()
+                var audios = VK.Api.call('audio.search',
+                        {q: query, auto_complete: 1, search_own: 1, v: 5.60},
+                        function (data) {
+                            $('#vkmusic').empty();
+                            console.log('audio.get returns it ->' + JSON.stringify(data));
+                            console.log(data["response"]["items"][1]["id"]); // this is song id
 
-</script>
+                            var aud_template = '<audio src="" controls></audio>';
+                            for (var i = 1; i <= data.response.items.length - 2; i++) {
+                                console.log(i + 'th iteration');
+                                $('#vkmusic').append("<div class='col-xs-12'></div>");
+                                a = $($(".col-xs-12").get(-1));
+                                var song = data.response.items[i];
+                                var song_title = song["artist"] + "--" + song["title"];
+                                a.append("<p>" + song_title + "</p>");
+                                src = data.response.items[i]["url"];
+                                var to_insert = $(aud_template);
+                                to_insert.attr("src", src);
+                                //to_insert.wrap("<div class='col-xs-12'></div>");
+                                a.append(to_insert);
+                                a.append("<hr>");
+                            }
+                        })
+            }
+            return false;
+        })
 
+    })
+    document.addEventListener('play', function (e) {
+        var audios = document.getElementsByTagName('audio');
 
-    
-    
+        for (var i = 0, len = audios.length; i < len; i++) {
+            if (audios[i] != e.target) {
+                audios[i].pause();
+            }
+        }
+    }, true);
+    var play = false;
+    playStop = function () {
+        if (paly === false) {
+
+        }
+    }
+
 
 </script>
 
@@ -194,14 +252,15 @@ $(document).ready(function () {
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mylinks"
-                    aria-expanded="false" >
+                    aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img class="img-responsive" src="img/logo2.png" style=" max-height:61px;margin-top:-20px;border-radius: 50px;">
+                <img class="img-responsive" src="img/logo2.png"
+                     style=" max-height:61px;margin-top:-20px;border-radius: 50px;">
             </a>
             <p class="navbar-text">Welcome to Youth Music</p>
         </div>
@@ -209,7 +268,7 @@ $(document).ready(function () {
         <div class="collapse navbar-collapse" id="mylinks" onclick="return false;">
             <div class="navbar-header navbar-right">
                 <ul class="nav navbar-nav">
-                    <li id="startInitVK"  ><a href="#">
+                    <li id="startInitVK"><a href="#">
                         Sign In</a>
                     </li>
                 </ul>
@@ -276,30 +335,40 @@ $(document).ready(function () {
     </div><!-- /.container-fluid -->
 </nav>
 
-    <div class="parallax">
+<div class="parallax">
 
-    </div>
+</div>
 
 <div id="cont">
 
-    <nav class="navbar navbar-default navbar-static-top " data-spy="affix" data-offset-top="440" >
-        <div class="container-fluid">            
+    <nav class="navbar navbar-default navbar-static-top " data-spy="affix" data-offset-top="440">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <ul class="nav nav-tabs" role="tablist" id="tabs">
-                  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" >All</a></li>
-                  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Artists</a></li>
-                  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Albums</a></li>
-                  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Genres</a></li>
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                                              data-toggle="tab">All</a></li>
+                    <li role="presentation"><a href="#friend1" aria-controls="friend1" role="tab" data-toggle="tab" id="nameFriend1">Friend1</a>
+                    </li>
+                    <li role="presentation"><a href="#friend2" aria-controls="friend2" role="tab" data-toggle="tab" id="nameFriend2">Friend2</a>
+                    </li>
+                    <li role="presentation"><a href="#friend3" aria-controls="friend3" role="tab" data-toggle="tab" id="nameFriend3">Friend3</a>
+                    </li>
+                    <li role="presentation"><a href="#friend4" aria-controls="friend4" role="tab" data-toggle="tab" id="nameFriend4">Friend4</a>
+                    </li>
+                    <li role="presentation"><a href="#friend5" aria-controls="friend5" role="tab" data-toggle="tab" id="nameFriend5">Friend5</a>
+                    </li>
+
                 </ul>
             </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search music">
+                        <input type="text" class="form-control" id="searchMusic" placeholder="Search for...">
                     </div>
-                    <button type="submit" class="btn btn-default button-grey" id="subbut">SEARCH</button>
-                </form> 
+                    <button class="btn btn-default" type="button">Go!</button>
+                </form>
             </div><!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
@@ -307,35 +376,33 @@ $(document).ready(function () {
 
     <!-- Tab panes -->
     <div class="tab-content">
-                  <div role="tabpanel" class="tab-pane fade in active" id="home">
-                    <button type="button" class="btn btn-default btn-sm like" >
-                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
-                    </button>
-                  </div>
-                  <div role="tabpanel" class="tab-pane fade" id="profile">
-                    <button type="button" class="btn btn-default btn-sm like">
-                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
-                    </button>
-                  </div>
-                  <div role="tabpanel" class="tab-pane fade" id="messages">
-                    <button type="button" class="btn btn-default btn-sm like">
-                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
-                    </button>
-                  </div>
-                  <div role="tabpanel" class="tab-pane fade" id="settings">
-                    <button type="button" class="btn btn-default btn-sm like">
-                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
-                    </button>
-                  </div>
-                </div>
-                <script>
+        <div role="tabpanel" class="tab-pane fade in active col-xs-6 col-xs-push-2" id="home">
+        <div id="vkmusic" ></div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend1">
+        </div>
+        <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend2">
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend3">
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend4">
+
+        </div>
+        <div role="tabpanel" class="tab-pane fade col-xs-6 col-xs-push-2" id="friend5">
+
+        </div>
+    </div>
+    <script>
         $('.like').click(function (e) {
             $(this).prop('disabled', true)
         })
-        </script>
+    </script>
 
-    <div id="vkmusic" class="col-xs-6 col-xs-push-2"></div>
-    <div id="vkfriends" class="col-xs-4 col-xs-push-2"></div>
+
+    <div id="vkfriends" class="col-xs-4 col-xs-push-2 pull-right   "></div>
 </div>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
