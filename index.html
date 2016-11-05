@@ -201,7 +201,7 @@ $(document).ready(function () {
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img class="img-responsive" src="img/logo2.png" style=" max-height:61px;margin-top:-20px;">
+                <img class="img-responsive" src="img/logo2.png" style=" max-height:61px;margin-top:-20px;border-radius: 50px;">
             </a>
             <p class="navbar-text">Welcome to Youth Music</p>
         </div>
@@ -306,33 +306,33 @@ $(document).ready(function () {
     </nav>
 
     <!-- Tab panes -->
-    <div class="tab-content"  data-offset-top="0">
-      <div role="tabpanel" class="tab-pane fade in active" id="home">
-        <!-- Контент для вкладки my-->
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-      </div>
-      <div role="tabpanel" class="tab-pane fade " id="profile">
-        <!-- Контент для вкладки my-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-
-      </div>
-      <div role="tabpanel" class="tab-pane fade " id="messages">
-        <!-- Контент для вкладки my-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-
-      </div>
-      <div role="tabpanel" class="tab-pane fade " id="settings">
-        <!-- Контент для вкладки my-->        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum maxime nihil iusto explicabo pariatur, quos earum quisquam incidunt tempora delectus laborum minima exercitationem corporis deserunt est optio sunt facere modi?
-
-      </div>
-
-    </div>
+    <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="home">
+                    <button type="button" class="btn btn-default btn-sm like" >
+                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
+                    </button>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="profile">
+                    <button type="button" class="btn btn-default btn-sm like">
+                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
+                    </button>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="messages">
+                    <button type="button" class="btn btn-default btn-sm like">
+                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
+                    </button>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="settings">
+                    <button type="button" class="btn btn-default btn-sm like">
+                      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Like
+                    </button>
+                  </div>
+                </div>
+                <script>
+        $('.like').click(function (e) {
+            $(this).prop('disabled', true)
+        })
+        </script>
 
     <div id="vkmusic" class="col-xs-6 col-xs-push-2"></div>
     <div id="vkfriends" class="col-xs-4 col-xs-push-2"></div>

@@ -56,7 +56,7 @@
     width: 100%;
     height : 300px;
 }
-
+.like{}
 .parallax {
     /* The image used */
     background-image: url("../img/imag.jpg");
