@@ -6,7 +6,7 @@
     <link href="css/style.css" rel="stylesheet">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="https://vk.com/js/api/openapi.js?136"></script>
-
+    <script src="js/jquery.jplayer.min.js"></script>
     <!--script type="text/javascript" src="js/script.js"></script-->
     <title>YouthMusic</title>
 </head>
@@ -45,7 +45,7 @@
                     console.log('audio.get returns it ->' + JSON.stringify(data));
                     console.log(data["response"]["items"][1]["id"]); // this is song id
 
-                    var aud_template = '<audio src="" controls></audio>';
+                    var aud_template = '<audio id="player" src="" controls></audio>';
 
                     for (var i = 1; i <= data.response.items.length - 2; i++) {
                         console.log(i + 'th iteration');
@@ -89,11 +89,9 @@
 
                 VK.Api.call('friends.get', {user_id: user_id, order: "hints", v: 5.60}, function (data) {
                     console.log(JSON.stringify(data));
-                    var ids = ['','fiend1','fiend2','fiend3','fiend4','fiend5',]
                     for (var i = 1; i < 10; i++) {
                         //data.response.items.length
                         var friend_id = data.response.items[i];
-                        $('#vkmusic').append("<div class='col-xs-12'></div>");
 
                         VK.Api.call('audio.get', {
                             owner_id: friend_id,
@@ -104,23 +102,20 @@
                         }, function (data_friends_audio) {
                             console.log('audio.get of id' + friend_id + ' returns it ->' + JSON.stringify(data_friends_audio));
                             var friend_name = data_friends_audio.response.items[0].name;
-
                             $('#friend1').append("<div class='col-xs-12'></div>");
                             $($(".col-xs-12").get(-1)).append($("<p>" + friend_name + " have " + data_friends_audio.response.count + " audios:</p>"));
-                            // for (var i = 1; i < data.response.items.length; i++) {
 
-                            // }
 
                             console.log('audio.get returns it ->' + JSON.stringify(data_friends_audio));
                             //console.log(data_friends_audio.response.items[1]["id"]); // this is song id
 
-                            var aud_template = '<audio style="width:100%; color:red;" src="" controls></audio>';
+                            var aud_template = '<audio  style="width:100%; color:red;" src=""  controls></audio>';
 
                             for (var j = 1; j <= data_friends_audio.response.items.length - 2; j++) {
                                 console.log(i + 'th iteration');
 
-                                document.getElementById('nameFriend'+j).innerHTML = friend_name;
-                                
+
+
                                 $('#friend1').append("<div class='col-xs-12'></div>");
                                 a = $($(".col-xs-12").get(-1));
 
@@ -229,20 +224,23 @@
     })
     document.addEventListener('play', function (e) {
         var audios = document.getElementsByTagName('audio');
-
+        $("#player").show("slow");
         for (var i = 0, len = audios.length; i < len; i++) {
             if (audios[i] != e.target) {
                 audios[i].pause();
             }
         }
     }, true);
-    var play = false;
-    playStop = function () {
-        if (paly === false) {
 
-        }
-    }
-
+    $('#player').click(function (e) {
+        document.getElementsByTagName('audio').pause();
+    })
+//    var onPlayPause = function(){
+//        document.getElementById('player').pause();
+//
+//
+//    return  false;
+//}
 
 </script>
 
@@ -280,56 +278,17 @@
     </div><!-- /.container-fluid -->
 </nav>
 <!-- Modal log-in -->
-<div class="modal fade" id="myModalLog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Название модали</h4>
-            </div>
-            <div class="col-xs-12 col-md-6 col-md-offset-3">
-                <form role="form">
-                    <h1>Войти</h1>
-                    <div class="form-group has-success">
-                        <label for="exampleInputEmail1" class='control-label'>Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                        <span class="glyphicon glyphicon-ok form-control-feedback"
-                              style="top:13em;text-align: left;"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Пароль</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1"
-                               placeholder="Password">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Запомнить меня
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Отправить</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 <nav class="navbar navbar-default navbar-fixed-bottom" id="player">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">
-                <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
+        <div class="navbar-header" >
+            <a class="navbar-brand" href="#" >
+                <span class="glyphicon glyphicon-play" aria-hidden="true" ></span>
             </a>
-            <a class="navbar-brand" href="#">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
-            </a>
-            <a class="navbar-brand" href="#">
-                <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
-            </a>
-            <p class="navbar-text">Young Music - Young Power.</p>
+            <p class="navbar-text" id="playerText">Young Music - Young Power.</p>
         </div>
 
     </div><!-- /.container-fluid -->
@@ -402,7 +361,7 @@
     </script>
 
 
-    <div id="vkfriends" class="col-xs-4 col-xs-push-2 pull-right   "></div>
+    <div id="vkfriends" class="col-xs-4 col-pull-right   "></div>
 </div>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.js"></script>
